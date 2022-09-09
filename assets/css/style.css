@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Combo&family=Oswald:wght@200;400&display=swap');
+
+body {
+	font-family: 'Oswald', sans-serif;
+	overflow: hidden;
+}
+
+header {
+	font-family: 'Combo', cursive;
+	font-size: 4rem;
+    text-align: center;
+    height: 10%;
+    background-color: darkslategrey;
+    color: lightgray;
+    width: 100%;
+}
+
+article {
+	font-weight: 200;
+    font-size: 1.5rem;
+    border: 5px solid black;
+    text-align: center;
+    margin: 30px 20px 30px 20px;
+}
+
+section {
+	font-size: 1.5rem;
+	margin: 0px 0px 30px 20px;
+}
+
+form {
+	display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+h1 {
+	font-size: medium;
+}
+
+input {
+	border-radius: 5px;
+}
+
+button {
+	color: white;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: darkslategray;
+    border-radius: 10px;
+	margin:40px auto;
+    display:block;
+}
+
+footer {
+    border: 5px solid black;
+    margin-top: 10px;
+    position: absolute;
+    left: 5rem;
+    right: 5rem;
+	height: 9rem;
+}
+
+aside {
+	font-size: 1.5rem;
+	border: 5px solid black;
+	width: fit-content;
+	height: 9rem;
+	position: relative;
+	top: -5px;
+	left: -5px;
+	padding-right: 12px;
+}
+
+#over {
+	color: darkgreen;
+}
+
+#same {
+	color: darkgoldenrod;
+}
+
+#under {
+	color: darkred;
+}
+
+#results {
+	position: relative;
+	bottom: 7rem;
+    left: 19rem;
+	font-size: x-large;
+	font-weight: bold;
+}
