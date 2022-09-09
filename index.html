@@ -4,66 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>How Does Your Carbon Footprint Add Up?</title>
-
-    <!-- linking to foundation -->
-    <link rel="stylesheet" href="css/foundation.css">
-    <script src="js/vendor/modernizr.js"></script>
-
-    <!-- personal css style sheet -->
+    <title>Carbon Footprint - Yearly Average Calculator</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- All scripts sent to bottom -->
 </head>
 <body>
-    <!--Jumbotron for Title-->
-    <div style="background-color:green ;color: yellow;">
-        <h1> <strong>Carbon Footprint Comparison</strong></h1>
-        <h2>How Does Your Impact Compare to the United States National Average?</h2>
-    </div>
-
-    <div class="container">
-        <!--Row for adding miles traveled a week-->
+    <header> <!-- Removed inline styling, added header instead of Div -->
+        Carbon Footprint Yearly Average Calculator
+    </header>
+    <section>
+        A typical passenger vehicle emits about 4.6 metric tons of carbon dioxide per year.</br>
+        The average gasoline vehicle has a fuel economy of ~ 22.0 miles per gallon and drives ~ 11,500 miles per year.</br>
+        Every gallon of gasoline burned creates about 8,887 grams of CO2.
+    </section>
+    <main> <!--Cleaned up unnecessry Divs-->
         <div>
-            <div>
-                <h4><strong>How Many Miles, On Average, Do You Drive a Day?</strong></h4>
-                <h5>Highway Driving (60 mph) for 20 Minutes Without Traffic is About 20 miles</h5>
-
-                <!--text box for capturing miles driven a week-->
-                <form>
-                    <input type="text" class="form-control"id="miles-driven" aria-label="Miles Driven" aria-describedby="miles-driven">
-                    <h5>Daily Miles Driven</h5>
-                    <input type="text" class="form-control"id="make" aria-label="Make" aria-describedby="make">
-                    <h5>Make of Vehicle</h5>
-                    <input type="text" class="form-control"id="model" aria-label="Model" aria-describedby="model">
-                    <h5>Model of Vehicle</h5>
-                    <input type="text" class="form-control"id="year" aria-label="Year" aria-describedby="year">
-                    <h5>Year of Vehicle</h5>
-                <!-- foundation style button for entering miles CALL API -->
-                </form>
-                <!-- for vehical type have the user make, model, year call to API save in local storage side window storage center-->
-            </div>   
-            <div>
-                <div>
-                    <div>
-                        <h3 class="miles-driven" id="miles-driven"></h3>
-                        <p>Calculated Yearly Miles Driven: <span class="current" id="miles-yearly"></span></p> 
-                            <!-- insert yellow, green, or red image of foot or something to signify -->
-                        <h3 class="legend">Color Legend</h3>
-                        <p style="color:green ;">Green = Less Miles Driven</p>
-                        <p style="color: darkorange;">Orange = Same Number of Miles Driven</p>
-                        <p style="color: darkred;">Red = More Miles Driven</p>
-                    </div>
-                </div>       
-            </div>
+            How much carbon do you generate?
+            Enter the information below and click 'Calculate' to see how you compare to the National Average!
         </div>
-    </div>
-		<footer>
-            <h2><strong>How The Numbers Add Up</strong></h2>
-            <h3>U.S. National Average for Miles Driven a Year: 11,500 or 4.6 Metric Tons of carbon dioxide</h3>
-            <h3><strong>Your Yearly Average: or </strong></h3>
-            <!-- insert math for calculating the tons of co2 burned based on yearly number of miles driven, 0.0004 metric tons per mile -->
-		</footer>
-
+        <form>
+            <h1>Daily Miles Driven</h1>
+            <input class="form-control"id="milesDriven">
+            <h1>Make of Vehicle</h1>
+            <input class="form-control"id="make">
+            <h1>Model of Vehicle</h1>
+            <input class="form-control"id="model">
+            <h1>Year of Vehicle</h1>
+            <input class="form-control"id="year">
+        </form>
+            <!-- Save inputs to local Storage-->
+        <button id="calculate">Calculate</button>
+    </main>
+    <footer>
+        <aside>
+            Legend:</br>
+            Over the Average</br>
+            Same as Average</br>
+            Under the Average</br>
+        </aside>
+        <!-- Color code results using JS, grab the span using document.query, then inject results with .innerHTML -->
+        <span id="results">Your Yearly Average is: </span>
+    </footer>
     <!--Code to Jvascript File-->
+    <script src="js/vendor/modernizr.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
