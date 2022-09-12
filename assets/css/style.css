@@ -43,6 +43,10 @@ input {
 	border-radius: 5px;
 }
 
+select {
+	border-radius: 5px;
+}
+
 button {
 	color: white;
     font-size: x-large;

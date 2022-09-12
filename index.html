@@ -29,19 +29,25 @@
             </div>
             <div class="inputContainer">
                 <h1>Make of Vehicle</h1>
-                <input class="form-control"id="make" placeholder="Ex. Honda">
+                <select class="form-control"id="make" onChange="populateVehicleModels(this);">
+                    <option value="selectmake">--- Select Make ---</option>
+                </select>
             </div>
             <div class="inputContainer">
                 <h1>Model of Vehicle</h1>
-                <input class="form-control"id="model" placeholder="Ex. CRV">
+                <select class="form-control"id="model" onChange="populateVehicleYears(this);">
+                    <option value="selectmodel">--- Select Model ---</option>
+                </select>
             </div>
             <div class="inputContainer">
                 <h1>Year of Vehicle</h1>
-                <input class="form-control"id="year" placeholder="Ex. 2018">
+                <select class="form-control"id="year">
+                    <option value="selectyear">--- Select Year ---</option>
+                </select>
             </div>
         </form>
             <!-- Save inputs to local Storage-->
-        <button id="calculate">Calculate</button>
+        <button id="calculate" onclick="calculate()">Calculate</button>
     </main>
     <footer>
         <aside>
