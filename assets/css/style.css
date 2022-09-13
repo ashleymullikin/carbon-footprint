@@ -67,6 +67,10 @@ aside {
 	padding-right: 12px;
 }
 
+svg {
+	max-width: 48px;
+}
+
 #over {
 	color: darkred;
 }
