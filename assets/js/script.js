@@ -77,11 +77,45 @@ const makeSelect = document.querySelector("#make");
 const modelSelect = document.querySelector("#model");
 const yearSelect = document.querySelector("#year");
 
+// called when page loads
+var loadPreviousSearch = function () {
+  // populates the form with the last search information if exists on initial page load
+  const lastSearchStr = window.localStorage.getItem("lastSearch");
+  if (lastSearchStr) {
+    const lastSearch = JSON.parse(lastSearchStr);
+    // select make in dropdown
+    const options = Array.from(makeSelect.options);
+    const optionToSelect = options.find(item => item.text === lastSearch.make);
+    if (optionToSelect) {
+      optionToSelect.selected = true;
+      // add model option
+      const opt = document.createElement('option');
+      opt.value = lastSearch.model;
+      opt.innerHTML = lastSearch.model;
+      opt.selected = true;
+      modelSelect.appendChild(opt);
+      // add year option
+      const opt2 = document.createElement('option');
+      opt2.value = lastSearch.vehicleId;
+      opt2.innerHTML = lastSearch.year;
+      opt2.selected = true;
+      yearSelect.appendChild(opt2);
+    }
+
+  }
+}
+
 var calculate = function () {
   // calculate miles for a year
   const miles = document.querySelector("#milesDriven").value * 365;
   const vehicleId = document.querySelector("#year").value;
-  //alert ("miles "  + miles + " , id " + vehicleId);
+  const make = makeSelect.options[makeSelect.selectedIndex].text;
+  const model = modelSelect.options[modelSelect.selectedIndex].text;
+  const year = yearSelect.options[yearSelect.selectedIndex].text;
+
+  // save search locally
+  const lastSearch = { vehicleId: vehicleId, make: make, model: model, year: year };
+  window.localStorage.setItem("lastSearch", JSON.stringify(lastSearch));
 
   var apiUrl = "https://www.carboninterface.com/api/v1/estimates";
   var headers = {
@@ -176,7 +210,10 @@ var populateVehicleMakes = function () {
             makeSelect.appendChild(opt);
           });
           sortOptionArray(optionArray);
+          // invoke function to populate with previously searched
+          loadPreviousSearch();
         });
+
       } else {
         console.log("error1");
       }
