@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Combo&family=Oswald:wght@200;400&display=swap');
 
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
 body {
 	font-family: 'Oswald', sans-serif;
-	overflow: hidden;
 }
 
 header {
@@ -57,28 +58,17 @@ button {
     display:block;
 }
 
-footer {
-    border: 5px solid black;
-    margin-top: 10px;
-    position: absolute;
-    left: 5rem;
-    right: 5rem;
-	height: 9rem;
-}
-
 aside {
 	font-size: 1.5rem;
 	border: 5px solid black;
-	width: fit-content;
-	height: 9rem;
-	position: relative;
-	top: -5px;
-	left: -5px;
+	height: 10rem;
+    margin: 0px 20px 0px 20px;
+	padding-left: 10px;
 	padding-right: 12px;
 }
 
 #over {
-	color: darkgreen;
+	color: darkred;
 }
 
 #same {
@@ -86,13 +76,27 @@ aside {
 }
 
 #under {
-	color: darkred;
+	color: darkgreen;
 }
 
 #results {
 	position: relative;
 	bottom: 7rem;
-    left: 19rem;
+    left: 33%;
 	font-size: x-large;
 	font-weight: bold;
+}
+
+footer {
+	font-family: 'Combo', cursive;
+    display: flex;
+	justify-content: space-evenly;
+    background-color: darkslategrey;
+	margin-top: 20px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+a {
+	color: white !important;
 }
