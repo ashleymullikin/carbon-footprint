@@ -107,12 +107,11 @@ var loadPreviousSearch = function () {
 
 var calculate = function () {
   // calculate miles for a year
-  const miles = document.querySelector("#milesDriven").value * 365;
+  const miles = document.querySelector("#milesDriven").value;
   const vehicleId = document.querySelector("#year").value;
   const make = makeSelect.options[makeSelect.selectedIndex].text;
   const model = modelSelect.options[modelSelect.selectedIndex].text;
   const year = yearSelect.options[yearSelect.selectedIndex].text;
-
   // save search locally
   const lastSearch = { vehicleId: vehicleId, make: make, model: model, year: year };
   window.localStorage.setItem("lastSearch", JSON.stringify(lastSearch));
@@ -131,10 +130,8 @@ var calculate = function () {
     }),
     method: "POST"
   };
-
-  // IMPORTANT - leave final fetch commented out for now we are limited to 200 estimates a month
-
-  /* fetch(apiUrl, headers)
+  if (milesErrorHandler(miles)) {
+   /* fetch(apiUrl, headers)
        .then(function(response) {
            if (response.ok) {
                response.json().then(function(data) {
@@ -146,10 +143,25 @@ var calculate = function () {
                console.log("error3");
            }
        });*/
-
+    }
 };
 
-// sort array alphabetically 
+var milesErrorHandler = function(miles) {
+    if (parseInt(miles) > 0) {
+        return true;
+    } else {
+        var errorEl = document.createElement("p");
+        errorEl.innerHTML = "Error: Invalid distance."
+        var calculateBtn = document.querySelector("#calculate");
+        calculateBtn.appendChild(errorEl);
+        setTimeout(function(){
+            calculateBtn.removeChild(calculateBtn.firstElementChild);
+        }, 3000);
+        return false;
+    }
+}
+
+// sort array alphabetically
 var sortOptionArray = function (array) {
   array.sort((a, b) => {
     const textA = a.text.toUpperCase(); // ignore upper and lowercase
