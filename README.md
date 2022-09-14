@@ -19,7 +19,7 @@ An app that calculates a users yearly carbon footprint; based on their type of c
 
 ## Website
 
-https://ashleymullikan.github.io/carbon-footprint/
+https://ashleymullikin.github.io/carbon-footprint/
 
 ## Contribution
 
