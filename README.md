@@ -14,6 +14,8 @@ An app that calculates a users yearly carbon footprint; based on their type of c
 - CSS
 - Javascript
 - Carbon Interface API
+- Icons8 API
+- Bulma CSS framework
 
 ## Website
 
